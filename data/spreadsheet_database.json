@@ -1,0 +1,2393 @@
+{
+  "spreadsheetId": "1Xy9095taEr4EQC7dWqOj_nPjaIDNsxyf6k6eN7Tb3Mc",
+  "lastUpdated": "2026-09-16T13:52:13.338Z",
+  "masterDealer": [
+    {
+      "kodeAhm": "01234",
+      "namaDealer": "PT. Daya Adicipta Motora - Cimahi",
+      "kodeDealer": "DLR-01234",
+      "kategori": "H1-H2-H3",
+      "kota": "Kota Cimahi",
+      "sentraDistribusi": "BAROS"
+    },
+    {
+      "kodeAhm": "05678",
+      "namaDealer": "PT. Astra Motor - Bandung",
+      "kodeDealer": "DLR-05678",
+      "kategori": "Wing",
+      "kota": "Kota Bandung",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "00112",
+      "namaDealer": "PT. Tunas Dwipa Matra - Karawang",
+      "kodeDealer": "DLR-00112",
+      "kategori": "H1-H2-H3",
+      "kota": "Kab. Karawang",
+      "sentraDistribusi": "KARAWANG"
+    },
+    {
+      "kodeAhm": "02345",
+      "namaDealer": "PT. Nusantara Sakti - Cirebon",
+      "kodeDealer": "DLR-02345",
+      "kategori": "H1-H2-H3",
+      "kota": "Kota Cirebon",
+      "sentraDistribusi": "CIREBON"
+    },
+    {
+      "kodeAhm": "03456",
+      "namaDealer": "PT. Bintang Motor Jaya - Bogor",
+      "kodeDealer": "DLR-03456",
+      "kategori": "Wing",
+      "kota": "Kab. Bogor",
+      "sentraDistribusi": "BAROS"
+    },
+    {
+      "kodeAhm": "07890",
+      "namaDealer": "PT. Daya Adicipta Sandika - Bekasi",
+      "kodeDealer": "DLR-07890",
+      "kategori": "BigWing",
+      "kota": "Kota Bekasi",
+      "sentraDistribusi": "KARAWANG"
+    },
+    {
+      "kodeAhm": "18390",
+      "namaDealer": "Helmi Motor",
+      "kodeDealer": "MAAD",
+      "kategori": "Wing",
+      "kota": "Majalengka",
+      "sentraDistribusi": "Cirebon"
+    },
+    {
+      "kodeAhm": "8037",
+      "namaDealer": "Cemara Agung Pratama",
+      "kodeDealer": "GEAU",
+      "kategori": "Reguler",
+      "kota": "Karawang",
+      "sentraDistribusi": "Karawang"
+    },
+    {
+      "kodeAhm": "7561",
+      "namaDealer": "Tunas Dwipa Matra",
+      "kodeDealer": "HLD",
+      "kategori": "Reguler",
+      "kota": "Bekasi",
+      "sentraDistribusi": "Karawang"
+    },
+    {
+      "kodeAhm": "6835",
+      "namaDealer": "Bintang Motor Jaya",
+      "kodeDealer": "DLR-6835",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1154",
+      "namaDealer": "Pacific Motor",
+      "kodeDealer": "DLR-1154",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1848",
+      "namaDealer": "Guna Motor",
+      "kodeDealer": "DLR-1848",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1989",
+      "namaDealer": "Bintang Niaga Jaya",
+      "kodeDealer": "DLR-1989",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "11793",
+      "namaDealer": "Harika Prima Sakti",
+      "kodeDealer": "DLR-11793",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "9883",
+      "namaDealer": "Eka Surya Wijaya",
+      "kodeDealer": "DLR-9883",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1935",
+      "namaDealer": "Lestari Motor",
+      "kodeDealer": "DLR-1935",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "7665",
+      "namaDealer": "Daya Anugrah Mandiri",
+      "kodeDealer": "DLR-7665",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "773",
+      "namaDealer": "Prima Motor",
+      "kodeDealer": "DLR-773",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "9196",
+      "namaDealer": "Roda Mitra Lestari",
+      "kodeDealer": "DLR-9196",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "13286",
+      "namaDealer": "Dharma Makmur Bersama",
+      "kodeDealer": "DLR-13286",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "12644",
+      "namaDealer": "Bintang Alam Jaya",
+      "kodeDealer": "DLR-12644",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "11067",
+      "namaDealer": "Daya Anugrah Mandiri",
+      "kodeDealer": "DLR-11067",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "13378",
+      "namaDealer": "Mitra Pinasthika Mustika",
+      "kodeDealer": "DLR-13378",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "501",
+      "namaDealer": "Selamat Lestari Mandiri",
+      "kodeDealer": "DLR-501",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "8599",
+      "namaDealer": "Cibitung Motor Mandiri",
+      "kodeDealer": "DLR-8599",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "12790",
+      "namaDealer": "Daya Anugrah Mandiri",
+      "kodeDealer": "DLR-12790",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "13060",
+      "namaDealer": "Bekasi Motor",
+      "kodeDealer": "DLR-13060",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "841",
+      "namaDealer": "Selamat Lestari Mandiri",
+      "kodeDealer": "DLR-841",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "12111",
+      "namaDealer": "Selamat Lestari Mandiri",
+      "kodeDealer": "DLR-12111",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "8039",
+      "namaDealer": "Murni Motor",
+      "kodeDealer": "DLR-8039",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1369",
+      "namaDealer": "Amarta Sayap Merah",
+      "kodeDealer": "DLR-1369",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "6831",
+      "namaDealer": "Daya Anugrah Mandiri",
+      "kodeDealer": "DLR-6831",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "8369",
+      "namaDealer": "Sanprima Sentosa",
+      "kodeDealer": "DLR-8369",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "6975",
+      "namaDealer": "Pacific Motor",
+      "kodeDealer": "DLR-6975",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "853",
+      "namaDealer": "Mulia Motor II",
+      "kodeDealer": "DLR-853",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "12698",
+      "namaDealer": "Cibitung Motor Mandiri",
+      "kodeDealer": "DLR-12698",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "7596",
+      "namaDealer": "Tridjaya Anugerah Sukses",
+      "kodeDealer": "DLR-7596",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1155",
+      "namaDealer": "Terus Jaya Sentosa Motor",
+      "kodeDealer": "DLR-1155",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "10867",
+      "namaDealer": "Supra Jaya Motor",
+      "kodeDealer": "DLR-10867",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1863",
+      "namaDealer": "Surya Wijaya Sejahtera",
+      "kodeDealer": "DLR-1863",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "7210",
+      "namaDealer": "Daya Anugrah Mandiri",
+      "kodeDealer": "DLR-7210",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "1225",
+      "namaDealer": "Wijaya Abadi",
+      "kodeDealer": "DLR-1225",
+      "kategori": "Reguler",
+      "kota": "Jawa Barat",
+      "sentraDistribusi": "BANDUNG"
+    },
+    {
+      "kodeAhm": "600",
+      "namaDealer": "Merdeka Motor",
+      "kodeDealer": "HAGA",
+      "kategori": "Reguler",
+      "kota": "Bekasi",
+      "sentraDistribusi": "Karawang"
+    },
+    {
+      "kodeAhm": "00999",
+      "namaDealer": "Daya Adicipta Motora",
+      "kodeDealer": "EGKHSH",
+      "kategori": "Big Wing",
+      "kota": "Bandung",
+      "sentraDistribusi": "Baros"
+    }
+  ],
+  "userMobile": [
+    {
+      "timestamp": "2026-09-01T08:00:00.000Z",
+      "email": "pdi.cimahi@honda.co.id",
+      "namaLengkap": "BUDI PRASETYO",
+      "noHp": "081234567890",
+      "kodeAhm": "01234",
+      "namaDealer": "PT. Daya Adicipta Motora - Cimahi",
+      "kodeDealer": "DLR-01234",
+      "kategori": "H1-H2-H3",
+      "kota": "Kota Cimahi",
+      "sentraDistribusi": "BAROS",
+      "role": "PDI Man"
+    },
+    {
+      "timestamp": "2026-09-01T08:30:00.000Z",
+      "email": "pdi.bandung@honda.co.id",
+      "namaLengkap": "AGUS HERMAWAN",
+      "noHp": "081398765432",
+      "kodeAhm": "05678",
+      "namaDealer": "PT. Astra Motor - Bandung",
+      "kodeDealer": "DLR-05678",
+      "kategori": "Wing",
+      "kota": "Kota Bandung",
+      "sentraDistribusi": "BANDUNG",
+      "role": "PDI Man"
+    },
+    {
+      "timestamp": "2026-09-16T12:08:32.949Z",
+      "email": "test.helmi@dealer.honda.co.id",
+      "namaLengkap": "TEST HELMI PDI",
+      "noHp": "081234567890",
+      "kodeAhm": "18390",
+      "namaDealer": "Helmi Motor",
+      "kodeDealer": "MAAD",
+      "kategori": "Wing",
+      "kota": "Majalengka",
+      "sentraDistribusi": "Cirebon",
+      "role": "PDI Man"
+    },
+    {
+      "timestamp": "2026-09-16T12:11:10.361Z",
+      "email": "ari.imam@daya-motora.com",
+      "namaLengkap": "01203820 ARI IMAM SAFARI",
+      "noHp": "6282118421300",
+      "kodeAhm": "600",
+      "namaDealer": "Merdeka Motor",
+      "kodeDealer": "HAGA",
+      "kategori": "Reguler",
+      "kota": "Bekasi",
+      "sentraDistribusi": "Karawang",
+      "role": "PDI Man"
+    },
+    {
+      "timestamp": "2026-09-16T12:52:01.859Z",
+      "email": "safaria347@gmail.com",
+      "namaLengkap": "ARI IMAM SAFARI",
+      "noHp": "08218421300",
+      "kodeAhm": "999",
+      "namaDealer": "Daya Adicipta Motora",
+      "kodeDealer": "EGKHSH",
+      "kategori": "Big Wing",
+      "kota": "Bandung",
+      "sentraDistribusi": "Baros",
+      "role": "PDI Man"
+    },
+    {
+      "timestamp": "2026-09-16T13:02:26.506Z",
+      "email": "pdiman.tester.1789563734961@gmail.com",
+      "namaLengkap": "TEST REGISTRASI REALTIME",
+      "noHp": "081311223344",
+      "kodeAhm": "01234",
+      "namaDealer": "PT. Daya Adicipta Motora - Cimahi",
+      "kodeDealer": "DLR-01234",
+      "kategori": "H1-H2-H3",
+      "kota": "Kota Cimahi",
+      "sentraDistribusi": "BAROS",
+      "role": "PDI Man"
+    },
+    {
+      "timestamp": "2026-09-16T13:52:13.338Z",
+      "email": "newuser.1789566728730@gmail.com",
+      "namaLengkap": "USER BARU REGISTRASI",
+      "noHp": "081234567890",
+      "kodeAhm": "01234",
+      "namaDealer": "PT. Daya Adicipta Motora - Cimahi",
+      "kodeDealer": "DLR-01234",
+      "kategori": "H1-H2-H3",
+      "kota": "Kota Cimahi",
+      "sentraDistribusi": "BAROS",
+      "role": "PDI Man"
+    }
+  ],
+  "klaimHeader": [],
+  "klaimDetail": [],
+  "masterTransporter": [
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9285 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9973 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9994 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9098 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9277 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9102 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9287 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9288 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9289 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9278 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9977 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9880 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9276 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9101 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9200 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9280 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9170 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9939 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9204 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9167 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9279 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9892 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9286 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9934 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9975 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9971 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9969 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9103 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9991 UIO"
+    },
+    {
+      "transporter": "SBR",
+      "nopol": "D 9365 UD"
+    },
+    {
+      "transporter": "SBR",
+      "nopol": "D 9656 UB"
+    },
+    {
+      "transporter": "SBR",
+      "nopol": "D 9570 XA"
+    },
+    {
+      "transporter": "SBR",
+      "nopol": "D 9227 UD"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9994 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9323 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9811 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9013 UVZ"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9987 UWV"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9012 UVZ"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9927 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9024 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9895 UIO"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9809 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9981 UWV"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9010 UVZ"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9961 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9011 UVZ"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9030 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9103 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9812 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9963 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9943 UWV"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9826 UVY"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9853 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9362 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9294 UVV"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9390 UO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9007 UU"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9181 UYU"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9370 UVV"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9152 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9349 UVV"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9026 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9996 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9986 UWV"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9083 UVZ"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9995 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9926 UIO"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9105 UVZ"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9825 UVY"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9196 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9126 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9933 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9937 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9199 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9186 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9202 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9203 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9198 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9883 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9035 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9033 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9100 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9104 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9197 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9392 UO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9427 UYU"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9993 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9936 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9974 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9935 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9995 UIO"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9099 UIP"
+    },
+    {
+      "transporter": "RJTM",
+      "nopol": "B 9246 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9964 UIO"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9325 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9104 UVZ"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9263 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9322 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9301 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9304 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9240 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9021 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9133 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9243 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9321 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9302 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9305 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9985 UWV"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9264 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9989 UWV"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9239 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9241 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9028 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9851 UIO"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9968 UIO"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9854 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9242 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9134 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9147 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9266 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9324 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9801 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9265 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9023 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9303 UIP"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9929 UVY"
+    },
+    {
+      "transporter": "TM",
+      "nopol": "B 9019 UIP"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "B 9641 QB"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9472 DI"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "B 9790 YE"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "B 9347 BYX"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9753 DH"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9476 DI"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "B 9072 VQO"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "B 9836 YV"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9751 DH"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9754 DH"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9475 DI"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9877 DF"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9752 DH"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9755 DH"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9128 DF"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9579 DH"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9473 DI"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "B 9826 OL"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "B 9348 BYX"
+    },
+    {
+      "transporter": "WSS",
+      "nopol": "T 9526 DL"
+    }
+  ],
+  "masterMotor": [
+    {
+      "tipe": "BEAT",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "BEAT",
+      "warna": "RD/BK",
+      "namaWarna": "Red Black"
+    },
+    {
+      "tipe": "BEAT",
+      "warna": "SV/BK",
+      "namaWarna": "Silver Black"
+    },
+    {
+      "tipe": "BEAT",
+      "warna": "MBL",
+      "namaWarna": "Matte Blue"
+    },
+    {
+      "tipe": "BEAT",
+      "warna": "MSV",
+      "namaWarna": "Matte Silver"
+    },
+    {
+      "tipe": "BEAT",
+      "warna": "MBR",
+      "namaWarna": "Matte Brown"
+    },
+    {
+      "tipe": "BEAT",
+      "warna": "MGN",
+      "namaWarna": "Matte Green"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "warna": "BR",
+      "namaWarna": "Brown"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "SCOOPY",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "SCOOPY",
+      "warna": "BL",
+      "namaWarna": "Blue"
+    },
+    {
+      "tipe": "SCOOPY",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "SCOOPY",
+      "warna": "WH",
+      "namaWarna": "White / Pearl White"
+    },
+    {
+      "tipe": "SCOOPY",
+      "warna": "MRD",
+      "namaWarna": "Matte Red"
+    },
+    {
+      "tipe": "SCOOPY",
+      "warna": "MGN",
+      "namaWarna": "Matte Green"
+    },
+    {
+      "tipe": "GENIO",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "GENIO",
+      "warna": "RD/BK",
+      "namaWarna": "Red Black"
+    },
+    {
+      "tipe": "GENIO",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "GENIO",
+      "warna": "MBR",
+      "namaWarna": "Matte Brown"
+    },
+    {
+      "tipe": "GENIO",
+      "warna": "MBL",
+      "namaWarna": "Matte Blue"
+    },
+    {
+      "tipe": "VARIO 125",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "VARIO 125",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "VARIO 125",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "VARIO 125",
+      "warna": "MBL",
+      "namaWarna": "Matte Blue"
+    },
+    {
+      "tipe": "VARIO 125",
+      "warna": "MRD",
+      "namaWarna": "Matte Red"
+    },
+    {
+      "tipe": "VARIO 160",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "VARIO 160",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "VARIO 160",
+      "warna": "MBL",
+      "namaWarna": "Matte Blue"
+    },
+    {
+      "tipe": "VARIO 160",
+      "warna": "MRD",
+      "namaWarna": "Matte Red"
+    },
+    {
+      "tipe": "VARIO 160",
+      "warna": "MWH",
+      "namaWarna": "Matte White"
+    },
+    {
+      "tipe": "STYLO 160",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "STYLO 160",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "STYLO 160",
+      "warna": "BG",
+      "namaWarna": "Beige"
+    },
+    {
+      "tipe": "STYLO 160",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "STYLO 160",
+      "warna": "MWH",
+      "namaWarna": "Matte White"
+    },
+    {
+      "tipe": "STYLO 160",
+      "warna": "MGN",
+      "namaWarna": "Matte Green"
+    },
+    {
+      "tipe": "PCX 160",
+      "warna": "MSV",
+      "namaWarna": "Matte Silver"
+    },
+    {
+      "tipe": "PCX 160",
+      "warna": "MBL",
+      "namaWarna": "Matte Blue"
+    },
+    {
+      "tipe": "PCX 160",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "PCX 160",
+      "warna": "WH",
+      "namaWarna": "White / Pearl White"
+    },
+    {
+      "tipe": "PCX 160",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "PCX 160",
+      "warna": "MBR",
+      "namaWarna": "Matte Brown"
+    },
+    {
+      "tipe": "ADV 160",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "ADV 160",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "ADV 160",
+      "warna": "WH",
+      "namaWarna": "White / Pearl White"
+    },
+    {
+      "tipe": "ADV 160",
+      "warna": "MBR",
+      "namaWarna": "Matte Brown"
+    },
+    {
+      "tipe": "ADV 160",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "ADV 160",
+      "warna": "MRD",
+      "namaWarna": "Matte Red"
+    },
+    {
+      "tipe": "FORZA 250",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "FORZA 250",
+      "warna": "GY",
+      "namaWarna": "Gray / Grey"
+    },
+    {
+      "tipe": "FORZA 250",
+      "warna": "WH",
+      "namaWarna": "White / Pearl White"
+    },
+    {
+      "tipe": "FORZA 250",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "warna": "RD/BK",
+      "namaWarna": "Red Black"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "warna": "MRD",
+      "namaWarna": "Matte Red"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "warna": "MGY",
+      "namaWarna": "Matte Gray / Gunmetal"
+    },
+    {
+      "tipe": "CB150X",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "CB150X",
+      "warna": "MGN",
+      "namaWarna": "Matte Green"
+    },
+    {
+      "tipe": "CB150X",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "CB150X",
+      "warna": "MBR",
+      "namaWarna": "Matte Brown"
+    },
+    {
+      "tipe": "CBR150R",
+      "warna": "RD/BK",
+      "namaWarna": "Red Black"
+    },
+    {
+      "tipe": "CBR150R",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "CBR150R",
+      "warna": "HRR",
+      "namaWarna": "Honda Racing Red"
+    },
+    {
+      "tipe": "CBR150R",
+      "warna": "TC",
+      "namaWarna": "Tricolor"
+    },
+    {
+      "tipe": "CBR150R",
+      "warna": "GP",
+      "namaWarna": "MotoGP Edition"
+    },
+    {
+      "tipe": "CBR250RR",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "CBR250RR",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "CBR250RR",
+      "warna": "RD/BK",
+      "namaWarna": "Red Black"
+    },
+    {
+      "tipe": "CBR250RR",
+      "warna": "HRR",
+      "namaWarna": "Honda Racing Red"
+    },
+    {
+      "tipe": "CBR250RR",
+      "warna": "TC",
+      "namaWarna": "Tricolor"
+    },
+    {
+      "tipe": "CRF150L",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "CRF150L",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "CRF150L",
+      "warna": "WH",
+      "namaWarna": "White / Pearl White"
+    },
+    {
+      "tipe": "CRF150L",
+      "warna": "GN",
+      "namaWarna": "Green"
+    },
+    {
+      "tipe": "CRF250 RALLY",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "REVO FIT / X",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "REVO FIT / X",
+      "warna": "BL",
+      "namaWarna": "Blue"
+    },
+    {
+      "tipe": "REVO FIT / X",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "SUPRA X 125 FI",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "SUPRA X 125 FI",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "SUPRA X 125 FI",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "SUPRA GTR 150",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "SUPRA GTR 150",
+      "warna": "BK",
+      "namaWarna": "Black"
+    },
+    {
+      "tipe": "SUPRA GTR 150",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "SUPRA GTR 150",
+      "warna": "MSV",
+      "namaWarna": "Matte Silver"
+    },
+    {
+      "tipe": "SUPER CUB C125",
+      "warna": "BL",
+      "namaWarna": "Blue"
+    },
+    {
+      "tipe": "SUPER CUB C125",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "SUPER CUB C125",
+      "warna": "MGY",
+      "namaWarna": "Matte Gray / Gunmetal"
+    },
+    {
+      "tipe": "CT125 HUNTER CUB",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "CT125 HUNTER CUB",
+      "warna": "MSV",
+      "namaWarna": "Matte Silver"
+    },
+    {
+      "tipe": "EM1 E: / PLUS",
+      "warna": "WH",
+      "namaWarna": "White / Pearl White"
+    },
+    {
+      "tipe": "EM1 E: / PLUS",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "EM1 E: / PLUS",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "EM1 E: / PLUS",
+      "warna": "MSV",
+      "namaWarna": "Matte Silver"
+    },
+    {
+      "tipe": "ICON E:",
+      "warna": "GN",
+      "namaWarna": "Green"
+    },
+    {
+      "tipe": "ICON E:",
+      "warna": "OR",
+      "namaWarna": "Orange"
+    },
+    {
+      "tipe": "ICON E:",
+      "warna": "RD",
+      "namaWarna": "Red"
+    },
+    {
+      "tipe": "ICON E:",
+      "warna": "WH",
+      "namaWarna": "White / Pearl White"
+    },
+    {
+      "tipe": "ICON E:",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "CUV E:",
+      "warna": "MWH",
+      "namaWarna": "Matte White"
+    },
+    {
+      "tipe": "CUV E:",
+      "warna": "MSV",
+      "namaWarna": "Matte Silver"
+    },
+    {
+      "tipe": "CUV E:",
+      "warna": "MBK",
+      "namaWarna": "Matte Black"
+    },
+    {
+      "tipe": "CUV E:",
+      "warna": "MBL",
+      "namaWarna": "Matte Blue"
+    },
+    {
+      "tipe": "CUV E:",
+      "warna": "MGY",
+      "namaWarna": "Matte Gray / Gunmetal"
+    }
+  ],
+  "masterPart": [
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover front top (dasi depan)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover front (tameng depan)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover front handle (batok depan)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover rear handle (batok belakang)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover inner upper (dek laci)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover inner lower (dek kontak)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover r body (bodi samping kanan)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover l body (bodi samping kiri)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover center (sambungan bodi)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "step floor (pijakan kaki)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover under (kolong dek bawah)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "cover fan (tutup kipas)"
+    },
+    {
+      "tipe": "BEAT",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "visor front handle (visor stang)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover front top (dasi depan)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover front (tameng depan)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover inner upper (dek laci)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover inner lower (dek kontak)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover r body (bodi samping kanan)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover l body (bodi samping kiri)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover center (sambungan bodi)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "fender rear street (spakbor belakang)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "step floor (pijakan kaki)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover under (kolong bodi)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "cover fan (tutup kipas)"
+    },
+    {
+      "tipe": "BEAT STREET",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover front top panel (tameng depan)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover front lower (dasi bawah)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover handle front (batok depan)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover handle rear (batok belakang)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover inner upper (laci depan)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover inner lower (dek kontak)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover r side body (bodi samping kanan)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover l side body (bodi samping kiri)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover center (tengah)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "step floor (pijakan kaki)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover under side r (bawah kanan)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "cover under side l (bawah kiri)"
+    },
+    {
+      "tipe": "SCOOPY",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover front center (tameng depan)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover handle front (batok depan)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover handle rear (batok belakang)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover inner upper (laci)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover inner lower (dek kontak)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover r body (bodi samping kanan)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover l body (bodi samping kiri)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover center"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "step floor (pijakan kaki)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "cover under (kolong)"
+    },
+    {
+      "tipe": "GENIO",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover front top panel (dasi depan)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cowl r front (sayap depan kanan)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cowl l front (sayap depan kiri)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover handle front (batok depan)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover handle rear (batok belakang)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover inner upper (laci)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover inner lower (dek kontak)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover r body side (bodi samping kanan)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover l body side (bodi samping kiri)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover center upper (tengah atas)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "step floor (pijakan kaki)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover under side r (bawah kanan)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover under side l (bawah kiri)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "VARIO 125",
+      "namaPart": "cover radiator (tutup radiator)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover front center (dasi depan)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cowl r front side (sayap depan kanan)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cowl l front side (sayap depan kiri)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover handle front (batok depan)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover handle rear (batok belakang)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover inner upper (dek laci)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover inner lower (dek kontak)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover r body (bodi samping kanan)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover l body (bodi samping kiri)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover center (bodi tengah)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "step floor (pijakan kaki)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover under floor (kolong)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "VARIO 160",
+      "namaPart": "cover radiator (tutup radiator)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover front top panel (tameng atas)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover front center lower (tameng bawah)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover handle front (batok depan)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover handle rear (batok belakang)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover r front side (sayap samping kanan)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover l front side (sayap samping kiri)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover inner pocket (laci depan)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover inner lower (dek kontak)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover r side body (bodi samping kanan)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover l side body (bodi samping kiri)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover center upper (tengah)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "step floor (pijakan kaki)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover under (kolong bawah)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "STYLO 160",
+      "namaPart": "cover radiator (tutup radiator)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover front center (dasi depan)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cowl r front side (sayap depan kanan)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cowl l front side (sayap depan kiri)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "screen windshield (visor depan)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover front handle (batok stang)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover meter panel (cover spidometer)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover inner upper (laci & tombol bensin)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover inner lower (dek kunci kontak)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover r side body (bodi samping kanan)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover l side body (bodi samping kiri)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover center (dek tangki bensin)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "step r floor (pijakan kaki kanan)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "step l floor (pijakan kaki kiri)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover under (kolong bawah)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover rr grab rail (cover behel)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "PCX 160",
+      "namaPart": "cover radiator (tutup radiator)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cowl r side outer (sayap luar kanan)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cowl l side outer (sayap luar kiri)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover front center (tameng depan)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "screen adjustable (windshield depan)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover handle upper (batok stang atas)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover meter visor (visor spidometer)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover inner upper (laci depan)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover inner lower (dek kunci)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover r body side (bodi samping kanan)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover l body side (bodi samping kiri)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover center (dek tengah bensin)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "fender rear tie (spakbor belakang)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "step r floor (pijakan kaki kanan)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "step l floor (pijakan kaki kiri)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover under (kolong bawah)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover rr handle (cover behel belakang)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "ADV 160",
+      "namaPart": "cover radiator (tutup radiator)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "cowl front upper (batok depan utama)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "cowl r side front (sayap depan kanan)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "cowl l side front (sayap depan kiri)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "screen power wind (windshield elektrik)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "cover r body (bodi samping kanan)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "cover l body (bodi samping kiri)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "cover center floor (dek tengah tangki)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "step r floor (pijakan kaki kanan)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "step l floor (pijakan kaki kiri)"
+    },
+    {
+      "tipe": "FORZA 250",
+      "namaPart": "protector muffler (tutup knalpot)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "shroud r fuel tank (shroud tangki kanan)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "shroud l fuel tank (shroud tangki kiri)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "cover tank center (kondom tangki tengah)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "cowl under lower (cover undercowl mesin)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "cover r rear body (bodi samping kanan)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "cover l rear body (bodi samping kiri)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "cover center rear (bodi buntut)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "visor front headlight (visor lampu depan)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "CB150R STREETFIRE",
+      "namaPart": "fender rear sport (spakbor belakang gantung)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "cowl r front shroud (shroud adventure kanan)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "cowl l front shroud (shroud adventure kiri)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "cowl front beak (moncong adventure depan)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "screen adventure high (windshield tinggi)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "under cowl skid plate (pelindung bawah mesin)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "cover tank center (kondom tangki)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "cover r rear side (bodi samping kanan)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "cover l rear side (bodi samping kiri)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "cover center rear (bodi buntut)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "CB150X",
+      "namaPart": "fender rear (spakbor belakang)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cowl front upper (fairing atas kepala)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cowl r middle fairing (fairing samping kanan)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cowl l middle fairing (fairing samping kiri)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cowl r lower fairing (undercowl bawah kanan)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cowl l lower fairing (undercowl bawah kiri)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cowl r rear seat (bodi ekor kanan)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cowl l rear seat (bodi ekor kiri)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cover center rear tail (sambungan bodi ekor)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "screen wind cbr (windshield visor)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "cover fuel tank (kondom tangki bensin)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "fender front (spakbor depan)"
+    },
+    {
+      "tipe": "CBR150R",
+      "namaPart": "fender rear (spakbor belakang gantung)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl front upper center (fairing atas kepala)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl r side outer (fairing samping luar kanan)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl l side outer (fairing samping luar kiri)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl r side inner (fairing dalam kanan)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl l side inner (fairing dalam kiri)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl r under (undercowl bawah kanan)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl l under (undercowl bawah kiri)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cowl rear seat tail (bodi ekor lancip)"
+    },
+    {
+      "tipe": "CBR250RR",
+      "namaPart": "cover fuel tank shell (kondom tangki luar)"
+    }
+  ],
+  "masterKerusakan": [
+    "CACAT CAT / LECET",
+    "PECAH / PATAH",
+    "GORES / BARET",
+    "BENGKOK / DEFLEKSI",
+    "KELENGKAPAN KURANG",
+    "RETIS / RETAK RAMBUT"
+  ],
+  "masterPenyebab": [
+    "BONGKAR MUAT TRUK",
+    "HANDLING LOGISTIK",
+    "PACKING PABRIK",
+    "GESEKAN UNIT LAIN",
+    "BENTURAN TALI CRANE",
+    "TERGORES DINDING KAROSERI"
+  ]
+}
