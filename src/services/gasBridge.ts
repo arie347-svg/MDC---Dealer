@@ -169,44 +169,44 @@ export const GasService = {
     const cleanEmail = email.trim().toLowerCase();
     const cleanKode = kodeAhm.trim();
     const variants = getKodeAhmVariants(cleanKode);
-    console.log(`[gasBridge] loginUser CALL email: ${cleanEmail} variants:`, variants);
+    
+    console.log(`[gasBridge] loginUser single-request CALL email: ${cleanEmail} kodeAhm: ${cleanKode}`);
 
-    let lastResult: { status: string; user?: UserProfile; message?: string } | null = null;
-
-    for (const variant of variants) {
-      try {
-        const res = await executeGasAction<{ status: string; user?: UserProfile; message?: string }>(
-          'loginUser',
-          { email: cleanEmail, kodeAhm: variant },
-          (gasRun, resolve, reject) => {
-            gasRun
-              .withSuccessHandler((rawRes: any) => {
-                const parsed = parseGasResponse<{ status: string; user?: UserProfile; message?: string }>(rawRes);
-                resolve(parsed);
-              })
-              .withFailureHandler((err: Error) => {
-                reject(err);
-              })
-              .loginUser(cleanEmail, variant);
-          }
-        );
-
-        lastResult = res;
-        if (res && res.status === 'SUCCESS' && res.user) {
-          console.log(`[gasBridge] loginUser SUCCESS with variant: ${variant}`);
-          return res;
+    try {
+      // Solusi: Kirim cukup 1 kali request ke server proxy/backend.
+      // Server akan mengecek seluruh variasi secara instan di sisi backend.
+      const res = await executeGasAction<{ status: string; user?: UserProfile; message?: string }>(
+        'loginUser',
+        { email: cleanEmail, kodeAhm: cleanKode, variants },
+        (gasRun, resolve, reject) => {
+          gasRun
+            .withSuccessHandler((rawRes: any) => {
+              const parsed = parseGasResponse<{ status: string; user?: UserProfile; message?: string }>(rawRes);
+              resolve(parsed);
+            })
+            .withFailureHandler((err: Error) => {
+              reject(err);
+            })
+            .loginUser(cleanEmail, cleanKode);
         }
-      } catch (err: any) {
-        console.warn(`[gasBridge] loginUser notice variant ${variant}:`, err?.message || err);
-      }
-    }
+      );
 
-    return (
-      lastResult || {
+      if (res && res.status === 'SUCCESS' && res.user) {
+        console.log(`[gasBridge] loginUser SUCCESS`);
+        return res;
+      }
+
+      return res || {
         status: 'FAILED',
         message: 'Kombinasi Email dan Kode AHM tidak ditemukan. Pastikan akun telah terdaftar.',
-      }
-    );
+      };
+    } catch (err: any) {
+      console.warn(`[gasBridge] loginUser error:`, err?.message || err);
+      return {
+        status: 'FAILED',
+        message: err?.message || 'Gagal terhubung ke server verifikasi akun.',
+      };
+    }
   },
 
   // 2. Lookup Kode AHM

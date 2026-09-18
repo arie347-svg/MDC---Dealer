@@ -162,7 +162,7 @@ async function startServer() {
       const cleanEmail = (data?.email || "").trim().toLowerCase();
       const cleanKode = (data?.kodeAhm || "").trim();
 
-      // Bangun variasi kode AHM (prioritaskan 5 digit resmi Honda: misal 999 -> [00999, 999])
+      // Bangun variasi kode AHM (prioritaskan 5 digit resmi: misal 123 -> [00123, 123])
       const digits = cleanKode.replace(/\D/g, '');
       const variants: string[] = [];
       if (digits) {
@@ -177,75 +177,50 @@ async function startServer() {
         if (noZero && !variants.includes(noZero)) {
           variants.push(noZero);
         }
-      } else {
+      } else if (cleanKode) {
         variants.push(cleanKode);
       }
 
       console.log(`[API /api/gas] loginUser verifikasi email: ${cleanEmail} dengan variasi kode:`, variants);
 
-      let authUser = null;
-      let authStatus = null;
-      let lastRemoteJson = null;
+      // 1. LANGKAH PERTAMA: Cek database lokal terlebih dahulu (0ms latency)
+      const finalAuthResult = SpreadsheetDatabase.loginUser(cleanEmail, cleanKode);
 
-      // Periksa remote GAS untuk setiap variasi kode AHM
-      for (const variant of variants) {
-        const webappRes = await callGasRemote(GAS_WEBAPP_URL, "loginUser", {
-          email: cleanEmail,
-          kodeAhm: variant,
-        });
-        if (webappRes && webappRes.status === "SUCCESS" && webappRes.user) {
-          authUser = webappRes.user;
-          authStatus = "SUCCESS";
-          lastRemoteJson = webappRes;
-          console.log(`[API /api/gas] loginUser cocok di remote GAS dengan variasi: ${variant}`);
-          break;
-        }
-
-        const devLoginRes = await callGasRemote(GAS_DEV_URL, "loginUser", {
-          email: cleanEmail,
-          kodeAhm: variant,
-        });
-        if (devLoginRes && devLoginRes.status === "SUCCESS" && devLoginRes.user) {
-          authUser = devLoginRes.user;
-          authStatus = "SUCCESS";
-          lastRemoteJson = devLoginRes;
-          console.log(`[API /api/gas] loginUser cocok di remote DEV GAS dengan variasi: ${variant}`);
-          break;
-        }
-
-        if (!lastRemoteJson && (webappRes || devLoginRes)) {
-          lastRemoteJson = webappRes || devLoginRes;
-        }
+      if (finalAuthResult && finalAuthResult.status === "SUCCESS") {
+        console.log(`[API /api/gas] loginUser sukses ditemukan di database lokal secara instan.`);
+        return res.json(finalAuthResult);
       }
 
-      // Jika remote GAS berhasil memverifikasi user dari Users_Mobile
-      if (authStatus === "SUCCESS" && authUser) {
+      // 2. Jika tidak ditemukan di lokal, lakukan pemanggilan remote GAS
+      const primaryVariant = variants[0] || cleanKode;
+      const remoteRes = await callGasRemote(GAS_WEBAPP_URL, "loginUser", {
+        email: cleanEmail,
+        kodeAhm: primaryVariant,
+      });
+
+      if (remoteRes && remoteRes.status === "SUCCESS" && remoteRes.user) {
         try {
           SpreadsheetDatabase.registerUser({
-            email: authUser.email,
-            namaLengkap: authUser.nama || authUser.namaLengkap || "",
-            noHp: authUser.noHp || "",
-            kodeAhm: authUser.kodeAhm || "",
-            namaDealer: authUser.namaDealer || "",
-            kodeDealer: authUser.kodeDealer || "",
-            kategori: authUser.kategori || "",
-            kota: authUser.kota || "",
-            sentraDistribusi: authUser.sentraDistribusi || "",
-            role: authUser.role || "PDI Man",
+            email: remoteRes.user.email,
+            namaLengkap: remoteRes.user.nama || remoteRes.user.namaLengkap || "",
+            noHp: remoteRes.user.noHp || "",
+            kodeAhm: remoteRes.user.kodeAhm || "",
+            namaDealer: remoteRes.user.namaDealer || "",
+            kodeDealer: remoteRes.user.kodeDealer || "",
+            kategori: remoteRes.user.kategori || "",
+            kota: remoteRes.user.kota || "",
+            sentraDistribusi: remoteRes.user.sentraDistribusi || "",
+            role: remoteRes.user.role || "PDI Man",
           });
         } catch (_) {}
-        return res.json(lastRemoteJson);
+        
+        console.log(`[API /api/gas] loginUser sukses dari remote GAS.`);
+        return res.json(remoteRes);
       }
 
-      // Jika remote GAS menolak seluruh variasi kode AHM dari Users_Mobile
-      if (lastRemoteJson && lastRemoteJson.status === "FAILED") {
-        console.log(`[API /api/gas] Login ditolak oleh backend remote Users_Mobile setelah mencoba semua variasi untuk: ${cleanEmail}`);
-        return res.json(lastRemoteJson);
-      }
-
-      // Fallback ke basis data lokal (sudah mendukung isCodeMatch dengan/tanpa nol) jika GAS unreachable
-      const localResult = SpreadsheetDatabase.loginUser(cleanEmail, cleanKode);
-      return res.json(localResult);
+      // Jika remote menolak atau gagal, kembalikan respons terakhir
+      console.log(`[API /api/gas] Login ditolak untuk email: ${cleanEmail}`);
+      return res.json(remoteRes || finalAuthResult);
     }
 
     if (action === "registerUser") {

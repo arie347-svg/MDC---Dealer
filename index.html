@@ -31,20 +31,33 @@
       window.deferredInstallPrompt = null;
       window.addEventListener('beforeinstallprompt', function(e) {
         e.preventDefault();
+        console.log('[MDC PWA] Event beforeinstallprompt berhasil ditangkap');
         window.deferredInstallPrompt = e;
-        window.dispatchEvent(new CustomEvent('pwa-prompt-ready'));
+        window.dispatchEvent(new CustomEvent('pwa-prompt-ready', { detail: e }));
+      });
+
+      window.addEventListener('appinstalled', function() {
+        console.log('[MDC PWA] Aplikasi berhasil terpasang ke perangkat');
+        window.deferredInstallPrompt = null;
+        window.dispatchEvent(new CustomEvent('pwa-installed'));
       });
 
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js')
+        var registerMdcSW = function() {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
             .then(function(reg) {
-              console.log('[MDC PWA] Service Worker terdaftar:', reg.scope);
+              console.log('[MDC PWA] Service Worker aktif:', reg.scope);
             })
             .catch(function(err) {
-              console.warn('[MDC PWA] Service Worker gagal terdaftar:', err);
+              console.warn('[MDC PWA] Registrasi Service Worker gagal:', err);
             });
-        });
+        };
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          registerMdcSW();
+        } else {
+          window.addEventListener('DOMContentLoaded', registerMdcSW);
+        }
       }
     </script>
 

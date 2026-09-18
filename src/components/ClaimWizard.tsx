@@ -986,7 +986,7 @@ export const ClaimWizard: React.FC<ClaimWizardProps> = ({
                 type="text"
                 value={namaSopirPJ}
                 onChange={(e) => setNamaSopirPJ(e.target.value.toUpperCase())}
-                placeholder="Nama lengkap sopir ekspedisi"
+                placeholder="Ketik disini"
                 className="w-full mt-0.5 px-2.5 py-1.5 rounded-lg bg-black/40 border border-white/20 text-white text-xs outline-none focus:border-red-500"
               />
             </div>
@@ -1056,7 +1056,7 @@ export const ClaimWizard: React.FC<ClaimWizardProps> = ({
                   value={nopolPJ}
                   onChange={(e) => handleNopolPJInput(e.target.value)}
                   onFocus={() => setShowNopolDropdown(true)}
-                  placeholder="Pilih atau ketik nopol (misal: B 9285 UIP)"
+                  placeholder="Pilih atau ketik"
                   className="w-full px-2.5 py-1.5 pr-8 rounded-lg bg-black/40 border border-white/20 text-white text-xs font-mono uppercase tracking-wider focus:border-red-500 outline-none"
                 />
                 <button
@@ -2060,15 +2060,15 @@ export const ClaimWizard: React.FC<ClaimWizardProps> = ({
                         <div>
                           <div className="flex items-center justify-between mb-1">
                             <label className="text-[10px] font-semibold text-white/90">
-                              Foto Cacat Part (Kamera HP) <span className="text-red-400 font-bold">* (Wajib Diunggah)</span>
+                              Foto Cacat Part <span className="text-red-400">*</span>
                             </label>
                             {part.fotoPart ? (
                               <span className="text-[9px] text-emerald-400 flex items-center gap-1 font-semibold">
-                                <CheckCircle2 className="w-3 h-3" /> Foto Terunggah
+                                <CheckCircle2 className="w-3 h-3" />
                               </span>
                             ) : (
                               <span className="text-[9px] text-red-400 flex items-center gap-1 font-medium">
-                                <AlertCircle className="w-3 h-3" /> Belum ada foto
+                                <AlertCircle className="w-3 h-3" />
                               </span>
                             )}
                           </div>
@@ -2081,7 +2081,7 @@ export const ClaimWizard: React.FC<ClaimWizardProps> = ({
                               } hover:border-red-400 cursor-pointer text-xs text-white/90 transition-colors shadow-sm`}
                             >
                               <Camera className="w-4 h-4 text-red-400" />
-                              <span>{part.fotoPart ? 'Ubah Foto Cacat Part' : 'Ambil/Unggah Foto Cacat Part *'}</span>
+                              <span>{part.fotoPart ? 'Ubah Foto Cacat Part' : 'Foto Cacat Part *'}</span>
                               <input
                                 type="file"
                                 accept="image/*"

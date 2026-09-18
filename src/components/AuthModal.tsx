@@ -528,12 +528,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       setLoginKodeAhm(e.target.value.trim());
                       if (errorMessage) setErrorMessage(null);
                     }}
-                    placeholder="Contoh: 999 atau 00999"
+                    placeholder="Contoh: 123 atau 00123"
                     className="w-full bg-transparent text-xs text-neutral-900 placeholder:text-neutral-500 font-normal outline-none"
                   />
                 </div>
                 <p className="text-[10px] text-white/50 mt-1 font-normal">
-                  Bisa diketik dengan atau tanpa awalan nol (contoh: 999 atau 00999).
+                  Bisa diketik dengan atau tanpa awalan nol
                 </p>
               </div>
 

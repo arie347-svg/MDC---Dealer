@@ -41,7 +41,7 @@ export const App: React.FC = () => {
   // Authentication & Profile State (Tidak lagi menyimpan kredensial di localStorage)
   const [user, setUser] = useState<UserProfile | null>(null);
   const [isVerifyingSession, setIsVerifyingSession] = useState<boolean>(() => {
-    // Bersihkan cache lama di localStorage secara proaktif agar Spreadsheet menjadi Single Source of Truth
+    // Bersihkan cache lama di localStorage secara proaktif (kecuali token sesi auth aktif)
     try {
       localStorage.removeItem('mdc_mobile_session_user');
       for (let i = localStorage.length - 1; i >= 0; i--) {
@@ -51,7 +51,12 @@ export const App: React.FC = () => {
         }
       }
     } catch (_) {}
-    return Boolean(sessionStorage.getItem(STORAGE_SESSION_AUTH));
+    
+    // Cek localStorage terlebih dahulu agar tetap tersimpan saat aplikasi di-close
+    return Boolean(
+      localStorage.getItem(STORAGE_SESSION_AUTH) || 
+      sessionStorage.getItem(STORAGE_SESSION_AUTH)
+    );
   });
   const [sessionVerifyError, setSessionVerifyError] = useState<string | null>(null);
 
@@ -75,18 +80,36 @@ export const App: React.FC = () => {
     alertDraft: false,
   });
 
-  // View & UI Filters
-  const [activeFilter, setActiveFilter] = useState<string>('ALL');
+  // View & UI Filters & Modal States
+  const [activeFilter, setActiveFilter] = useState<string>(() => {
+    return sessionStorage.getItem('mdc_active_filter') || 'ALL';
+  });
+  
   const [searchQuery, setSearchQuery] = useState<string>('');
+  
   const [viewMode, setViewMode] = useState<'CARDS' | 'SIMPLE'>(() => {
     return (localStorage.getItem(STORAGE_VIEW_MODE) as 'CARDS' | 'SIMPLE') || 'CARDS';
   });
+  
   const [isLoadingData, setIsLoadingData] = useState(false);
   const [dataFetchError, setDataFetchError] = useState<string | null>(null);
   const [liveTime, setLiveTime] = useState<string>('');
 
+  // Memulihkan status formulir wizard dari sessionStorage agar tidak mereset saat keluar aplikasi
+  const [isWizardOpen, setIsWizardOpen] = useState<boolean>(() => {
+    return sessionStorage.getItem('mdc_is_wizard_open') === 'true';
+  });
+
+  // Sinkronisasi otomatis ke sessionStorage
+  useEffect(() => {
+    sessionStorage.setItem('mdc_is_wizard_open', String(isWizardOpen));
+  }, [isWizardOpen]);
+
+  useEffect(() => {
+    sessionStorage.setItem('mdc_active_filter', activeFilter);
+  }, [activeFilter]);
+
   // Modals & Navigation Views
-  const [isWizardOpen, setIsWizardOpen] = useState(false);
   const [draftToContinue, setDraftToContinue] = useState<ClaimItem | null>(null);
   const [selectedClaimForDetail, setSelectedClaimForDetail] = useState<ClaimItem | null>(null);
   const [previewPhoto, setPreviewPhoto] = useState<{ url: string; title: string } | null>(null);
@@ -216,14 +239,17 @@ export const App: React.FC = () => {
     }
   }, [user, fetchAllData]);
 
-  // Auth Handlers (Bebas localStorage untuk data akun/kredensial)
+  // Auth Handlers (Menyimpan sesi auth ke localStorage agar awet saat aplikasi di-close)
   const handleLoginSuccess = (loggedInUser: UserProfile) => {
     setUser(loggedInUser);
     setSessionVerifyError(null);
-    sessionStorage.setItem(
-      STORAGE_SESSION_AUTH,
-      JSON.stringify({ email: loggedInUser.email, kodeAhm: loggedInUser.kodeAhm })
-    );
+    
+    const sessionData = JSON.stringify({ email: loggedInUser.email, kodeAhm: loggedInUser.kodeAhm });
+    
+    // Simpan ke localStorage agar tidak hilang saat aplikasi ditutup
+    localStorage.setItem(STORAGE_SESSION_AUTH, sessionData);
+    sessionStorage.setItem(STORAGE_SESSION_AUTH, sessionData);
+
     try {
       localStorage.removeItem('mdc_mobile_session_user');
       for (let i = localStorage.length - 1; i >= 0; i--) {
@@ -245,8 +271,12 @@ export const App: React.FC = () => {
   const executeLogout = () => {
     setShowLogoutConfirm(false);
     setUser(null);
+    
+    // Hapus sesi auth dari localStorage dan sessionStorage saat tombol keluar ditekan
+    localStorage.removeItem(STORAGE_SESSION_AUTH);
     sessionStorage.removeItem(STORAGE_SESSION_AUTH);
     sessionStorage.removeItem(STORAGE_MASTER_DATA);
+
     try {
       localStorage.removeItem('mdc_mobile_session_user');
       for (let i = localStorage.length - 1; i >= 0; i--) {
