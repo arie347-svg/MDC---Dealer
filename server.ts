@@ -67,6 +67,8 @@ function executeLocalSpreadsheetAction(action: string, data: any) {
       return SpreadsheetDatabase.simpanPengajuanKlaim(data?.payload || data || {});
     case "dealerKonfirmasiSelesai":
       return SpreadsheetDatabase.dealerKonfirmasiSelesai(data?.idKlaim || "");
+    case "dealerKonfirmasiRetur":
+      return SpreadsheetDatabase.dealerKonfirmasiRetur(data?.idKlaim || "", data?.alasan || "");
     case "checkDataVersion":
       return SpreadsheetDatabase.checkDataVersion(data?.clientVersion || "");
     default:

@@ -20,7 +20,13 @@ import {
   ChevronDown,
   Loader2,
 } from 'lucide-react';
-import { formatTimestampWIB, hitungSisaJamKerja, hitungEstimasiSelesai } from '../utils/slaCalculator';
+import {
+  formatTimestampWIB,
+  hitungSisaJamKerja,
+  hitungEstimasiSelesai,
+  parseTanggalAman,
+  isHariLiburAtauMinggu,
+} from '../utils/slaCalculator';
 import {
   generateLkuatPdf,
   generateLkuatPdfBlob,
@@ -34,6 +40,7 @@ interface ClaimDetailModalProps {
   onClose: () => void;
   onEditDraft?: (claim: ClaimItem) => void;
   onConfirmFinish?: (claimId: string) => void;
+  onConfirmRetur?: (claimId: string, alasan: string) => void;
   onPreviewPhoto: (url: string, title: string) => void;
 }
 
@@ -102,6 +109,7 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
   onClose,
   onEditDraft,
   onConfirmFinish,
+  onConfirmRetur,
   onPreviewPhoto,
 }) => {
   // Determine active step (1 to 5)
@@ -115,6 +123,9 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
   const [selectedStepView, setSelectedStepView] = useState<number>(activeStep);
   const [showExportDropdown, setShowExportDropdown] = useState<boolean>(false);
   const [isExporting, setIsExporting] = useState<boolean>(false);
+  const [showReturForm, setShowReturForm] = useState<boolean>(false);
+  const [alasanRetur, setAlasanRetur] = useState<string>('');
+  const [isSubmittingRetur, setIsSubmittingRetur] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -126,6 +137,9 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
       else if (claim.status === 'Dikirim ke Dealer') step = 4;
       else if (claim.status === 'Selesai') step = 5;
       setSelectedStepView(step);
+      setShowReturForm(false);
+      setAlasanRetur('');
+      setIsSubmittingRetur(false);
     }
   }, [claim?.idKlaim, claim?.status, isOpen]);
 
@@ -151,12 +165,31 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
 
   const getStepTimer = (stepNum: number) => {
     if (stepNum === 5) {
-      const estDate = hitungEstimasiSelesai(claim.rawDate || claim.tgl);
-      return (
-        <span className="text-[8.5px] font-mono text-emerald-300 font-semibold whitespace-nowrap bg-emerald-950/80 px-1 rounded border border-emerald-500/30">
-          Est: {estDate}
-        </span>
-      );
+      try {
+        const cur = parseTanggalAman(claim.rawDate || claim.tgl);
+        let daysAdded = 0;
+        while (daysAdded < 7) {
+          cur.setDate(cur.getDate() + 1);
+          if (!isHariLiburAtauMinggu(cur)) {
+            daysAdded++;
+          }
+        }
+        const d = String(cur.getDate()).padStart(2, '0');
+        const mNames = ['jan', 'feb', 'mar', 'apr', 'mei', 'jun', 'jul', 'agu', 'sep', 'okt', 'nov', 'des'];
+        const yy = String(cur.getFullYear()).slice(-2);
+        const estText = `${d}-${mNames[cur.getMonth()]}-${yy}`;
+        return (
+          <span className="text-[8px] font-mono text-emerald-300 font-bold whitespace-nowrap bg-emerald-950/90 px-1 py-0.5 rounded border border-emerald-500/30">
+            Est : {estText}
+          </span>
+        );
+      } catch (_) {
+        return (
+          <span className="text-[8px] font-mono text-emerald-300 font-bold whitespace-nowrap bg-emerald-950/90 px-1 py-0.5 rounded border border-emerald-500/30">
+            Est : -
+          </span>
+        );
+      }
     }
 
     if (stepNum !== activeStep || activeStep === 5) return null;
@@ -177,9 +210,9 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
     }
 
     return (
-      <span className={`inline-flex items-center gap-1 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full border ${color}`}>
-        <Clock className="w-2.5 h-2.5" />
-        {text}
+      <span className={`inline-flex items-center gap-0.5 text-[8.5px] font-mono font-bold px-1.5 py-0.5 rounded-full border ${color}`}>
+        <Clock className="w-2.5 h-2.5 flex-shrink-0" />
+        <span className="truncate">{text}</span>
       </span>
     );
   };
@@ -672,21 +705,46 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
     }
   };
 
+  // 4. Handler Konfirmasi Retur ke MD (Part Tidak OK)
+  const handleKirimRetur = async () => {
+    if (!alasanRetur.trim()) {
+      alert('Mohon tuliskan alasan atau keterangan kenapa barang diretur.');
+      return;
+    }
+    setIsSubmittingRetur(true);
+    try {
+      if (onConfirmRetur) {
+        await onConfirmRetur(claim.idKlaim, alasanRetur.trim());
+      } else {
+        alert(`Permintaan retur untuk klaim ${claim.idKlaim} berhasil dikirim.`);
+        onClose();
+      }
+      setShowReturForm(false);
+      setAlasanRetur('');
+    } catch (err: any) {
+      alert(err?.message || 'Gagal mengirim permintaan retur.');
+    } finally {
+      setIsSubmittingRetur(false);
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-md overflow-y-auto">
       <div className="relative w-full max-w-md my-auto overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-b from-slate-900/95 via-neutral-900/95 to-red-950/90 shadow-2xl backdrop-blur-xl text-white">
         
-        {/* HEADER: Keterangan status proses dihilangkan, ditambahkan tombol Mata & Ekspor */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-red-900/40">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-bold text-amber-400">Klaim #{claim.noSj}</span>
-            </div>
-            <p className="text-[10px] text-white/60 font-mono mt-0.5">{formatTimestampWIB(claim.rawDate || claim.tgl)}</p>
+        {/* HEADER: Hanya ID Klaim & Stempel Waktu Pembuatan (Tanpa No Surat Jalan di Header Atas) */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-red-950/60">
+          <div className="min-w-0 flex-1 pr-2">
+            <h3 className="font-mono text-xs font-black text-amber-400 tracking-wide truncate">
+              {claim.idKlaim || `CLM-${claim.noSj}`}
+            </h3>
+            <p className="text-[10px] text-white/60 font-mono mt-0.5">
+              {formatTimestampWIB(claim.rawDate || claim.tgl || claim.rawTimestamp)}
+            </p>
           </div>
 
-          <div className="flex items-center gap-1.5">
-            {/* 1. Tombol Mata: Lihat PDF LKUAT */}
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            {/* 1. Tombol Pratinjau (Mata) */}
             <button
               type="button"
               onClick={handleViewPdf}
@@ -747,10 +805,11 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
               )}
             </div>
 
+            {/* 3. Tombol Tutup Silang */}
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-colors ml-1"
+              className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-colors ml-0.5"
             >
               <X className="w-4 h-4" />
             </button>
@@ -759,40 +818,66 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
 
         {/* Modal Scrollable Body */}
         <div className="p-4 max-h-[75vh] overflow-y-auto space-y-4">
-          {/* 5-Step Horizontal Tracker Bar */}
-          <div className="relative px-2 pt-3 pb-2 bg-black/25 rounded-2xl border border-white/10">
-            <div className="absolute top-[38px] left-6 right-6 h-0.5 bg-white/20 z-0" />
-
-            <div className="relative z-10 flex items-center justify-between">
+          {/* 5-Step Horizontal Tracker Bar - Symmetrical Grid Layout */}
+          <div className="relative px-1.5 pt-2.5 pb-2.5 bg-black/30 rounded-2xl border border-white/10 overflow-hidden">
+            <div className="grid grid-cols-5 gap-0">
               {steps.map((step) => {
                 const isPassed = step.num < activeStep;
                 const isCurrent = step.num === activeStep;
                 const isSelected = step.num === selectedStepView;
+                const isClickable = step.num <= activeStep;
                 const Icon = step.icon;
 
-                let iconClass = 'bg-slate-800 border-white/20 text-white/40';
+                let iconClass = 'bg-slate-800/90 border-white/20 text-white/40';
                 if (isPassed) iconClass = 'bg-emerald-600/30 border-emerald-500 text-emerald-400';
                 if (isCurrent) iconClass = 'bg-gradient-to-r from-red-600 to-red-700 border-red-400 text-white shadow-lg shadow-red-900/60 ring-2 ring-red-400';
 
                 return (
                   <div
                     key={step.num}
-                    onClick={() => (step.num <= activeStep ? setSelectedStepView(step.num) : null)}
-                    className={`flex flex-col items-center cursor-pointer transition-all ${
-                      isSelected ? 'scale-105' : 'opacity-85'
-                    }`}
+                    onClick={() => (isClickable ? setSelectedStepView(step.num) : null)}
+                    className={`flex flex-col items-center select-none transition-all ${
+                      isClickable ? 'cursor-pointer' : 'cursor-default opacity-70'
+                    } ${isSelected ? 'scale-[1.03]' : 'opacity-90 hover:opacity-100'}`}
                   >
-                    <div className="h-4 flex items-center justify-center mb-1">
+                    {/* Row 1: Timer Badge (Tinggi konsisten) */}
+                    <div className="h-5 flex items-center justify-center mb-1 w-full px-0.5">
                       {getStepTimer(step.num)}
                     </div>
 
-                    <div
-                      className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all ${iconClass}`}
-                    >
-                      <Icon className="w-4 h-4" />
+                    {/* Row 2: Node Circle with Connecting Bar */}
+                    <div className="relative w-full flex items-center justify-center">
+                      {/* Connecting Line Left */}
+                      {step.num > 1 && (
+                        <div
+                          className={`absolute right-1/2 top-1/2 -translate-y-1/2 w-1/2 h-0.5 z-0 ${
+                            step.num <= activeStep ? 'bg-emerald-500' : 'bg-white/15'
+                          }`}
+                        />
+                      )}
+                      {/* Connecting Line Right */}
+                      {step.num < 5 && (
+                        <div
+                          className={`absolute left-1/2 top-1/2 -translate-y-1/2 w-1/2 h-0.5 z-0 ${
+                            step.num < activeStep ? 'bg-emerald-500' : 'bg-white/15'
+                          }`}
+                        />
+                      )}
+
+                      {/* Icon Circle */}
+                      <div
+                        className={`relative z-10 w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all ${iconClass}`}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </div>
                     </div>
 
-                    <span className={`text-[9px] font-bold mt-1 text-center truncate max-w-[54px] ${isSelected ? 'text-amber-300' : 'text-white/60'}`}>
+                    {/* Row 3: Step Label */}
+                    <span
+                      className={`text-[9px] font-bold mt-1.5 text-center leading-tight tracking-tight truncate w-full px-0.5 ${
+                        isSelected ? 'text-amber-300' : isCurrent ? 'text-white' : 'text-white/60'
+                      }`}
+                    >
                       {step.label}
                     </span>
                   </div>
@@ -842,30 +927,28 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
                     <Truck className="w-3.5 h-3.5 text-sky-400" />
                     2. Pengiriman ke Main Dealer
                   </h4>
-                  <div className="flex items-center gap-1.5">
-                    {waPengurus && (
-                      <>
-                        <a
-                          href={`tel:${waPengurus}`}
-                          title="Telepon Langsung"
-                          className="p-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white shadow transition-all flex items-center justify-center"
-                        >
-                          <Phone className="w-3 h-3" />
-                        </a>
-                        <a
-                          href={`https://wa.me/${waPengurus}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Chat WhatsApp"
-                          className="p-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all flex items-center justify-center"
-                        >
-                          <MessageCircle className="w-3 h-3" />
-                        </a>
-                      </>
-                    )}
-                  </div>
+                  {waPengurus && (
+                    <div className="flex items-center gap-1.5">
+                      <a
+                        href={`tel:${waPengurus}`}
+                        title="Telepon Pengurus"
+                        className="p-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white shadow transition-all flex items-center justify-center"
+                      >
+                        <Phone className="w-3 h-3" />
+                      </a>
+                      <a
+                        href={`https://wa.me/${cleanPhone(waPengurus)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Chat WhatsApp Pengurus"
+                        className="p-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all flex items-center justify-center"
+                      >
+                        <MessageCircle className="w-3 h-3" />
+                      </a>
+                    </div>
+                  )}
                 </div>
-                <div className="text-xs text-white/80 space-y-1">
+                <div className="text-xs text-white/85 space-y-1">
                   <div>Driver: <strong className="text-white">{claim.sopirPJ || '-'}</strong> ({claim.nopolPJ || '-'})</div>
                   <div>Transporter: <strong className="text-white">{claim.transporterPJ || '-'}</strong></div>
                 </div>
@@ -879,30 +962,29 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
                     <Wrench className="w-3.5 h-3.5 text-amber-400" />
                     3. Proses Pengerjaan di Main Dealer
                   </h4>
-                  <div className="flex items-center gap-1.5">
-                    {waRepairman && (
-                      <>
-                        <a
-                          href={`tel:${waRepairman}`}
-                          title="Telepon Repairman"
-                          className="p-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white shadow transition-all flex items-center justify-center"
-                        >
-                          <Phone className="w-3 h-3" />
-                        </a>
-                        <a
-                          href={`https://wa.me/${waRepairman}?text=Halo%20Repairman%20MD,%20konfirmasi%20progress%20klaim%20SJ%20${claim.noSj}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Chat WhatsApp Repairman"
-                          className="p-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all flex items-center justify-center"
-                        >
-                          <MessageCircle className="w-3 h-3" />
-                        </a>
-                      </>
-                    )}
-                  </div>
+                  {/* Hanya PDI Man yang dapat melihat tombol komunikasi Repairman pada status Proses MD */}
+                  {user?.role === 'PDI Man' && waRepairman && (
+                    <div className="flex items-center gap-1.5">
+                      <a
+                        href={`tel:${waRepairman}`}
+                        title="Telepon Repairman"
+                        className="p-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white shadow transition-all flex items-center justify-center"
+                      >
+                        <Phone className="w-3 h-3" />
+                      </a>
+                      <a
+                        href={`https://wa.me/${cleanPhone(waRepairman)}?text=Halo%20Repairman%20MD,%20konfirmasi%20progress%20klaim%20SJ%20${claim.noSj}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Chat WhatsApp Repairman"
+                        className="p-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all flex items-center justify-center"
+                      >
+                        <MessageCircle className="w-3 h-3" />
+                      </a>
+                    </div>
+                  )}
                 </div>
-                <div className="text-xs text-white/80 space-y-1.5">
+                <div className="text-xs text-white/85 space-y-1.5">
                   <div className="flex justify-between">
                     <span className="text-white/60">Jenis Perbaikan:</span>
                     <strong className="text-amber-300">{claim.mdJenisPerbaikan || 'Menunggu Analisa'}</strong>
@@ -925,45 +1007,117 @@ export const ClaimDetailModal: React.FC<ClaimDetailModalProps> = ({
                     4. Dikirim Kembali ke Dealer
                   </h4>
                   <div className="flex items-center gap-1.5">
-                    {waPengurus && (
-                      <>
-                        <a
-                          href={`tel:${waPengurus}`}
-                          title="Telepon Driver"
-                          className="p-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white shadow transition-all flex items-center justify-center"
-                        >
-                          <Phone className="w-3 h-3" />
-                        </a>
-                        <a
-                          href={`https://wa.me/${waPengurus}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Chat WhatsApp Driver"
-                          className="p-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all flex items-center justify-center"
-                        >
-                          <MessageCircle className="w-3 h-3" />
-                        </a>
-                      </>
+                    {/* Kontak Pengurus Ekspedisi hanya dapat dilihat oleh PDI Man */}
+                    {user?.role === 'PDI Man' && waPengurus && (
+                      <a
+                        href={`https://wa.me/${cleanPhone(waPengurus)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Chat Pengurus Ekspedisi"
+                        className="px-2 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-bold flex items-center gap-1"
+                      >
+                        <MessageCircle className="w-3 h-3" /> Pengurus
+                      </a>
+                    )}
+                    {/* Kontak PDI Man hanya dapat dilihat oleh Repairmen */}
+                    {user?.role === 'Repairmen' && claim.noHpPdi && (
+                      <a
+                        href={`https://wa.me/${cleanPhone(claim.noHpPdi)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Chat PDI Man"
+                        className="px-2 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-[10px] font-bold flex items-center gap-1"
+                      >
+                        <MessageCircle className="w-3 h-3" /> PDI Man
+                      </a>
                     )}
                   </div>
                 </div>
-                <p className="text-xs text-white/70 mb-3">
+                <p className="text-xs text-white/70 mb-2.5">
                   Armada ekspedisi sedang dalam perjalanan mengantarkan part yang telah selesai diperbaiki ke Dealer Anda.
                 </p>
 
-                {claim.status === 'Dikirim ke Dealer' && onConfirmFinish && (
-                  <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/40 p-3">
-                    <p className="text-xs font-bold text-emerald-300 mb-1">Konfirmasi Part Tiba di Dealer?</p>
-                    <p className="text-[11px] text-white/70 mb-2">
-                      Pastikan fisik suku cadang telah diperiksa dalam kondisi sempurna sebelum menutup klaim.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => onConfirmFinish(claim.idKlaim)}
-                      className="w-full py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white text-xs font-bold shadow-lg shadow-emerald-900/50 transition-all active:scale-98 cursor-pointer"
-                    >
-                      Validasi & Konfirmasi Terima Part
-                    </button>
+                {/* Keterangan Part Sudah Divalidasi Hasil Perbaikan Disertai Checklist Hijau */}
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs mb-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <span className="leading-tight font-medium">
+                    Part sudah divalidasi hasil perbaikan & lolos QC Main Dealer.
+                  </span>
+                </div>
+
+                {/* Bagian Aksi Konfirmasi Serah Terima di Dealer */}
+                {claim.status === 'Dikirim ke Dealer' && (
+                  <div className="rounded-2xl border border-white/15 bg-black/40 p-3 space-y-2.5 shadow-inner">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-white">Konfirmasi Kondisi Barang:</span>
+                      <span className="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30">
+                        Tiba di Dealer
+                      </span>
+                    </div>
+
+                    {/* Dua Tombol Aksi Utama: Terima (Solid Menonjol Hijau) & Retur (Transparan / Redup) */}
+                    <div className="grid grid-cols-2 gap-2">
+                      {/* Tombol Terima: Solid Menonjol Hijau */}
+                      <button
+                        type="button"
+                        onClick={() => onConfirmFinish && onConfirmFinish(claim.idKlaim)}
+                        className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 active:scale-[0.98] text-white text-xs font-bold shadow-lg shadow-emerald-950/60 border border-emerald-400/50 flex items-center justify-center gap-1.5 cursor-pointer transition-all"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                        <span>Terima (Barang OK)</span>
+                      </button>
+
+                      {/* Tombol Retur: Transparan / Redup Tidak Mencolok */}
+                      <button
+                        type="button"
+                        onClick={() => setShowReturForm((prev) => !prev)}
+                        className={`w-full py-2.5 px-3 rounded-xl border transition-all flex items-center justify-center gap-1.5 cursor-pointer text-xs font-medium active:scale-[0.98] ${
+                          showReturForm
+                            ? 'bg-red-950/50 border-red-500/50 text-red-300'
+                            : 'bg-transparent hover:bg-white/5 border-white/20 text-white/60 hover:text-white'
+                        }`}
+                      >
+                        <AlertTriangle className="w-3.5 h-3.5 text-white/50" />
+                        <span>Retur (Tidak OK)</span>
+                      </button>
+                    </div>
+
+                    {/* Kolom Input Teks Dinamis Alasan / Keterangan Retur */}
+                    {showReturForm && (
+                      <div className="pt-2.5 border-t border-white/10 space-y-2 animate-in fade-in zoom-in-95 duration-150">
+                        <label className="block text-[11px] font-semibold text-red-300">
+                          Alasan / Keterangan Kenapa Barang Diretur:
+                        </label>
+                        <textarea
+                          rows={2}
+                          value={alasanRetur}
+                          onChange={(e) => setAlasanRetur(e.target.value)}
+                          placeholder="Jelaskan kondisi cacat fisik atau alasan part tidak sesuai..."
+                          className="w-full p-2.5 rounded-xl bg-black/60 border border-red-500/40 text-xs text-white placeholder-white/40 focus:outline-none focus:border-red-400 transition-colors resize-none"
+                        />
+                        <div className="flex items-center justify-end gap-2">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowReturForm(false);
+                              setAlasanRetur('');
+                            }}
+                            className="px-3 py-1.5 rounded-lg text-xs text-white/60 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                          >
+                            Batal
+                          </button>
+                          <button
+                            type="button"
+                            onClick={handleKirimRetur}
+                            disabled={!alasanRetur.trim() || isSubmittingRetur}
+                            className="px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 active:scale-95 disabled:opacity-40 disabled:pointer-events-none text-xs font-bold text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                          >
+                            {isSubmittingRetur && <Loader2 className="w-3 h-3 animate-spin" />}
+                            <span>Kirim Retur ke MD</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

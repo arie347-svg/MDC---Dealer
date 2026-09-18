@@ -84,6 +84,13 @@ async function executeGasAction<T = any>(
   }
 
   // Standalone / PWA Mode: Call backend proxy API
+  if (typeof navigator !== 'undefined' && !navigator.onLine) {
+    throw new Error('Koneksi internet terputus. Pastikan perangkat Anda terhubung ke jaringan internet.');
+  }
+
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timeoutId = controller ? setTimeout(() => controller.abort(), 28000) : null;
+
   try {
     const res = await fetch('/api/gas', {
       method: 'POST',
@@ -91,7 +98,10 @@ async function executeGasAction<T = any>(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ action, data }),
+      signal: controller ? controller.signal : undefined,
     });
+
+    if (timeoutId) clearTimeout(timeoutId);
 
     const responseText = await res.text();
     let json: any;
@@ -119,10 +129,66 @@ async function executeGasAction<T = any>(
     }
     return json as T;
   } catch (err: any) {
+    if (timeoutId) clearTimeout(timeoutId);
+    if (err?.name === 'AbortError') {
+      console.warn(`[gasBridge HTTP] ${action} Timeout`);
+      throw new Error(`Permintaan ke server (${action}) melampaui batas waktu tunggu. Silakan periksa koneksi Anda.`);
+    }
     console.warn(`[gasBridge HTTP] ${action} Notice:`, err?.message || err);
     throw new Error(err?.message || `Gagal menghubungi server untuk ${action}.`);
   }
 }
+
+// ----------------------------------------------------------------------------------
+// LOCAL STORAGE CACHE MANAGER UNTUK DATA MASTER STATIS
+// Catatan Kritis: HANYA untuk data master (motor, part, dealer).
+// DILARANG MENYIMPAN STATUS KLAIM agar tidak menimpa status real-time spreadsheet!
+// ----------------------------------------------------------------------------------
+const MASTER_DATA_STORAGE_KEY = 'mdc_master_data_cache_v2';
+const MASTER_CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000; // 24 Jam TTL
+
+export const GasCache = {
+  getMasterData(): MasterDataResponse | null {
+    if (typeof window === 'undefined') return null;
+    try {
+      const raw = localStorage.getItem(MASTER_DATA_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (
+        parsed &&
+        parsed.data &&
+        Array.isArray(parsed.data.motorList) &&
+        parsed.data.motorList.length > 0 &&
+        Date.now() - (parsed.timestamp || 0) < MASTER_CACHE_MAX_AGE_MS
+      ) {
+        return parsed.data;
+      }
+    } catch (_) {}
+    return null;
+  },
+
+  setMasterData(data: MasterDataResponse): void {
+    if (typeof window === 'undefined') return;
+    try {
+      if (data && Array.isArray(data.motorList) && data.motorList.length > 0) {
+        localStorage.setItem(
+          MASTER_DATA_STORAGE_KEY,
+          JSON.stringify({
+            timestamp: Date.now(),
+            data,
+          })
+        );
+      }
+    } catch (_) {}
+  },
+
+  clearMasterData(): void {
+    if (typeof window === 'undefined') return;
+    try {
+      localStorage.removeItem(MASTER_DATA_STORAGE_KEY);
+    } catch (_) {}
+  },
+};
 
 // Helper untuk menghasilkan variasi Kode AHM (dengan dan tanpa awalan nol 5 digit)
 export function getKodeAhmVariants(kode: string): string[] {
@@ -287,11 +353,23 @@ export const GasService = {
     );
   },
 
-  // 4. Get Master Data Form Klaim
-  getMasterDataKlaim(): Promise<MasterDataResponse> {
-    console.log('[gasBridge] getMasterDataKlaim CALL');
+  // 4. Get Master Data Form Klaim (dengan caching aman di localStorage)
+  async getMasterDataKlaim(forceRefresh = false): Promise<MasterDataResponse> {
+    if (!forceRefresh) {
+      const cached = GasCache.getMasterData();
+      if (cached && Array.isArray(cached.motorList) && cached.motorList.length > 0) {
+        console.log(
+          `[gasBridge] getMasterDataKlaim HIT localStorage cache (Motor: ${cached.motorList.length}, Part: ${
+            cached.partList?.length || 0
+          })`
+        );
+        return cached;
+      }
+    }
 
-    return executeGasAction<MasterDataResponse>(
+    console.log('[gasBridge] getMasterDataKlaim CALL network ke Spreadsheet/GAS');
+
+    const freshRes = await executeGasAction<MasterDataResponse>(
       'getMasterDataKlaim',
       {},
       (gasRun, resolve, reject) => {
@@ -312,6 +390,12 @@ export const GasService = {
           .getMasterDataKlaim();
       }
     );
+
+    if (freshRes && freshRes.success && Array.isArray(freshRes.motorList) && freshRes.motorList.length > 0) {
+      GasCache.setMasterData(freshRes);
+    }
+
+    return freshRes;
   },
 
   // 5. Get Dashboard Stats
@@ -412,6 +496,29 @@ export const GasService = {
             reject(new Error(err?.message || 'Gagal mengonfirmasi penyelesaian klaim di Spreadsheet.'));
           })
           .dealerKonfirmasiSelesai(idKlaim);
+      }
+    );
+  },
+
+  // 8b. Dealer Konfirmasi Retur (Part Tidak OK)
+  dealerKonfirmasiRetur(idKlaim: string, alasan: string): Promise<{ success: boolean; message?: string }> {
+    console.log(`[gasBridge] dealerKonfirmasiRetur CALL idKlaim: ${idKlaim} alasan: ${alasan}`);
+
+    return executeGasAction<{ success: boolean; message?: string }>(
+      'dealerKonfirmasiRetur',
+      { idKlaim, alasan },
+      (gasRun, resolve, reject) => {
+        gasRun
+          .withSuccessHandler((rawRes: any) => {
+            const res = parseGasResponse<{ success: boolean; message?: string }>(rawRes);
+            console.log(`[gasBridge] dealerKonfirmasiRetur SUCCESS idKlaim: ${idKlaim}`);
+            resolve(res);
+          })
+          .withFailureHandler((err: Error) => {
+            console.warn('[gasBridge] dealerKonfirmasiRetur Notice:', err?.message || err);
+            reject(new Error(err?.message || 'Gagal mengonfirmasi retur klaim di Spreadsheet.'));
+          })
+          .dealerKonfirmasiRetur(idKlaim, alasan);
       }
     );
   },

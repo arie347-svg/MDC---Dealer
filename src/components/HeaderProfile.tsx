@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { UserProfile } from '../types';
-import { LogOut, Building2, MapPin, Shield, Smartphone, Download } from 'lucide-react';
+import { LogOut, Building2, MapPin, Shield, Smartphone } from 'lucide-react';
 
 interface HeaderProfileProps {
   user: UserProfile;
@@ -25,20 +25,44 @@ export const HeaderProfile: React.FC<HeaderProfileProps> = ({ user, liveTime, on
     window.dispatchEvent(new CustomEvent('open-pwa-install'));
   };
 
+  // Informasi identitas dealer akurat
+  const namaDealer = user?.namaDealer || 'Daya Adicipta Motora';
+  const kodeDealer = user?.kodeDealer || 'EGKHSH';
+  const rawKota = user?.kota || 'Bandung';
+  const kotaFormatted = rawKota.toLowerCase().startsWith('kota') || rawKota.toLowerCase().startsWith('kab')
+    ? rawKota
+    : `Kota ${rawKota}`;
+  const asalGudang = user?.sentraDistribusi || 'Baros';
+
   return (
     <div className="relative overflow-hidden rounded-b-3xl bg-gradient-to-br from-red-600 via-red-700 to-red-900 text-white p-4 shadow-xl border-b border-white/20">
       {/* Background Decorative Pattern */}
       <div className="absolute -top-12 -right-12 w-36 h-36 bg-white/10 rounded-full blur-2xl pointer-events-none" />
       <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-black/20 rounded-full blur-xl pointer-events-none" />
 
-      {/* Top Row: User Avatar & Logout */}
+      {/* Top Row: User Avatar / MDC Logo & Logout */}
       <div className="relative flex items-center justify-between gap-3 mb-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="relative flex-shrink-0 w-11 h-11 rounded-2xl bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center shadow-md">
-            <span className="text-base font-black text-white tracking-tighter">
-              {user.nama ? user.nama.charAt(0).toUpperCase() : 'P'}
+          {/* Logo MDC */}
+          <div className="relative flex-shrink-0 w-11 h-11 rounded-2xl bg-white/15 border border-white/30 backdrop-blur-md p-1.5 flex items-center justify-center shadow-md overflow-hidden">
+            <img
+              src="/icon-192.png"
+              alt="Logo MDC"
+              className="w-full h-full object-contain drop-shadow-sm"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const fallback = parent.querySelector('.mdc-text-logo');
+                  if (fallback) fallback.classList.remove('hidden');
+                }
+              }}
+            />
+            <span className="mdc-text-logo hidden text-[11px] font-black tracking-wider text-white font-mono">
+              MDC
             </span>
-            <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-red-700" />
+            <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-red-700 shadow-xs" />
           </div>
 
           <div className="min-w-0">
@@ -49,7 +73,7 @@ export const HeaderProfile: React.FC<HeaderProfileProps> = ({ user, liveTime, on
               </span>
             </div>
             <h2 className="text-sm font-bold text-white truncate leading-tight tracking-wide">
-              {user.nama || 'PDI Man Dealer'}
+              {user?.nama || 'PDI Man Dealer'}
             </h2>
           </div>
         </div>
@@ -83,20 +107,20 @@ export const HeaderProfile: React.FC<HeaderProfileProps> = ({ user, liveTime, on
         <div className="flex items-center justify-between gap-2 mb-1.5">
           <div className="flex items-center gap-1.5 truncate text-white/95 font-semibold">
             <Building2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
-            <span className="truncate">{user.namaDealer || 'Dealer Honda'}</span>
+            <span className="truncate">{namaDealer}</span>
           </div>
-          <span className="flex-shrink-0 text-[10px] px-2 py-0.5 rounded-lg bg-white/20 font-bold tracking-wider text-white border border-white/30">
-            {user.kodeDealer || 'DLR'}
+          <span className="flex-shrink-0 text-[10px] px-2 py-0.5 rounded-lg bg-white/20 font-mono font-bold tracking-wider text-white border border-white/30">
+            {kodeDealer}
           </span>
         </div>
 
         <div className="flex items-center justify-between text-[11px] text-white/80 pt-1.5 border-t border-white/10">
           <div className="flex items-center gap-1">
             <MapPin className="w-3 h-3 text-red-300" />
-            <span>Kota: <strong className="text-white">{user.kota || '-'}</strong></span>
+            <span>Kota: <strong className="text-white">{kotaFormatted}</strong></span>
           </div>
           <div>
-            <span>Sentra: <strong className="text-amber-300 font-bold">{user.sentraDistribusi || '-'}</strong></span>
+            <span>Asal Gudang: <strong className="text-amber-300 font-bold">{asalGudang}</strong></span>
           </div>
         </div>
       </div>

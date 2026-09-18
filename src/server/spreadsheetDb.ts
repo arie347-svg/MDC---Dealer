@@ -704,6 +704,19 @@ export const SpreadsheetDatabase = {
     return { success: false, message: 'Klaim tidak ditemukan.' };
   },
 
+  // 8b. Confirm Claim Return (Part Not OK)
+  dealerKonfirmasiRetur(idKlaim: string, alasan: string) {
+    const db = initDb();
+    const header = db.klaimHeader.find((h) => h.idKlaim === idKlaim);
+    if (header) {
+      header.status = 'Proses di MD';
+      header.mdValidasiRepairman = 'Retur: ' + alasan;
+      saveDb(db);
+      return { success: true, message: 'Status klaim berhasil diperbarui menjadi Retur ke MD.' };
+    }
+    return { success: false, message: 'Klaim tidak ditemukan.' };
+  },
+
   // 9. Check Data Version
   checkDataVersion(clientVersion: string) {
     const db = initDb();
